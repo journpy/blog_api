@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # Third-party apps
     'rest_framework',
+    'drf_spectacular',
 
     # Local apps
     'posts',
@@ -127,3 +128,16 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# drf-spectacular configuration
+REST_FRAMEWORK = {
+    # SCHEMA SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Blog API',
+    'DESCRIPTION': 'A RESTful Blog API',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
