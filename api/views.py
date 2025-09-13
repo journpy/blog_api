@@ -2,7 +2,7 @@ from rest_framework import viewsets, permissions
 from django.contrib.auth import get_user_model
 from posts.models import Post
 from .serializers import PostSerializer, UserSerializer
-from .permissions import IsBloggerOrAuthenticatedReadOnly
+from .permissions import IsBloggerOrAuthenticatedReadOnly, IsStaffOnly
 
 User = get_user_model()
 
@@ -16,7 +16,7 @@ class PostViewSet(viewsets.ModelViewSet):
 
 class UserViewSet(viewsets.ModelViewSet):
     """User ViewSet"""
-    permission_classes = [permissions.IsAdminUser,]
+    permission_classes = [IsStaffOnly]
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
