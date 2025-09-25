@@ -11,12 +11,13 @@ class Post(models.Model):
     blogger = models.ForeignKey(
         User, 
         on_delete=models.CASCADE, 
-        blank=True, 
-        null=True,
+        related_name='posts',
         )
     content = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+
+
 
 
     class Meta:
