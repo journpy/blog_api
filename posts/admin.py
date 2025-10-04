@@ -7,6 +7,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'title', 'blogger', 'content', 'date_created', 'date_updated',
         )
+    search_fields = ('title',)
     
     def save_model(self, request, obj, form, change):
         if not change:
