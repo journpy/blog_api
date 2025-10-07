@@ -149,9 +149,14 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3,
     # SCHEMA SETTINGS
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'SEARCH_PARAM': 'user', # override search keyword in search filter
+    'ORDERING_PARAM': 'name', # Override ordering filter keyword
 }
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Blog API',
@@ -163,3 +168,4 @@ SPECTACULAR_SETTINGS = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
+

@@ -14,7 +14,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    blogger = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=False, read_only=False)
+    blogger = serializers.StringRelatedField(many=False)
     class Meta:
         model = Post
         fields = (
