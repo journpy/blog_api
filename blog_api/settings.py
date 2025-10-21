@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-lo3jw!&lhmgoz93bh1_*i&%_-h3=g)jkfo0s=tqni&uqqn1mda
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['testserver', '127.0.0.1']
 
 
 # Application definition
@@ -155,8 +155,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 3,
     # SCHEMA SETTINGS
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'SEARCH_PARAM': 'user', # override search keyword in search filter
-    'ORDERING_PARAM': 'name', # Override ordering filter keyword
+    'SEARCH_PARAM': 'search', # override search keyword in search filter
+    'ORDERING_PARAM': 'ordering', # Override ordering filter keyword
 }
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Blog API',
@@ -169,3 +169,4 @@ SPECTACULAR_SETTINGS = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 
+#APPEND_SLASH = False
