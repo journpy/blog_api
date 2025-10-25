@@ -29,6 +29,11 @@ urlpatterns = [
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
     # drf-spectacular url conf
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 ]
+
+# Customising generic error messages
+handler404 = 'utils.views.custom_404'
+handler500 = 'utils.views.custom_500'
+

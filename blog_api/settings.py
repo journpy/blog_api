@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     # Local apps
     'posts',
     'api',
+    'utils',
 ]
 
 MIDDLEWARE = [
@@ -157,6 +158,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     'SEARCH_PARAM': 'search', # override search keyword in search filter
     'ORDERING_PARAM': 'ordering', # Override ordering filter keyword
+    'EXCEPTION_HANDLER': "utils.views.custom_exception_handler"
 }
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Blog API',
